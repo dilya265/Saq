@@ -3,78 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qalqan: Kazakh-Language Scam Message Detection</title>
-<meta name="description" content="Project page for Qalqan, a project exploring scam message detection for Kazakh-speaking communities.">
+<title>SAQ: Kazakh-Language Scam Message Detection</title>
+<meta name="description" content="SAQ is a student project from ISSAI FRP exploring scam message detection for Kazakh-speaking communities.">
+<meta name="theme-color" content="#0f766e">
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#383838;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.55;text-align:center}a{color:#168de2;text-decoration:none}a:hover{text-decoration:underline}.page{width:min(1000px,calc(100% - 36px));margin:0 auto}.hero{padding:52px 0 70px}.hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.13;letter-spacing:-.045em;font-weight:600;margin:0 0 28px}.authors{font-size:1.18rem;margin:0 0 2px}.affiliations{font-size:1.1rem;color:#555;line-height:1.4}.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:25px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#383838;color:#fff;padding:10px 19px;border-radius:40px;font-size:1rem;min-width:112px}.button:hover{background:#202020;text-decoration:none}.button .icon{font-size:1.05rem}.hero-image{margin:0 auto;width:100%;aspect-ratio:16/7;background:#eef1ed;border:1px solid #e3e3e3;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#777}.hero-image img{width:100%;height:100%;object-fit:cover}.placeholder{padding:25px;max-width:540px}.placeholder strong{display:block;font-size:1.2rem;color:#555;margin-bottom:8px}.caption{margin:10px auto 0;color:#555;font-size:1rem}.section{padding:42px 0 0}.section h2{font-size:2rem;line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:0 0 24px}.section p{margin:0 auto 22px;max-width:850px;color:#555}.video-slot{width:min(850px,100%);aspect-ratio:16/9;background:#f5f5f5;border:1px solid #eee;margin:28px auto 10px;display:flex;align-items:center;justify-content:center;color:#777}.video-slot div{padding:25px}.demo-image{width:min(800px,100%);height:auto;display:block;margin:26px auto 10px}.code{width:min(690px,100%);margin:25px auto 0;background:#383838;color:white;text-align:left;padding:18px 22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere}.other-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:18px 0 0}.other-links a{border:1px solid #ddd;border-radius:7px;padding:8px 13px}.foot{padding:55px 0 30px;color:#888;font-size:.82rem}@media(max-width:600px){.hero{padding-top:38px}.hero h1{font-size:2.3rem}.authors,.affiliations{font-size:1rem}.button{min-width:0;padding:9px 14px;font-size:.9rem}.section{padding-top:34px}.section h2{font-size:1.7rem}.hero-image{aspect-ratio:4/3}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:#182724;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:18px;line-height:1.6;text-align:center;
+  background:
+    radial-gradient(900px 480px at 50% -140px,#d8f3ee 0%,rgba(216,243,238,0) 70%),
+    radial-gradient(700px 420px at 92% 120px,#e3ecfb 0%,rgba(227,236,251,0) 70%),
+    #fbfdfc;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:#0f766e;text-decoration:none}
+a:hover{text-decoration:underline}
+.page{width:min(1080px,calc(100% - 40px));margin:0 auto}
+.hero{padding:68px 0 18px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.16em;
+  font-size:.74rem;font-weight:700;color:#0b6b61;background:#e2f6f1;
+  border:1px solid #c6ece5;padding:7px 14px;border-radius:999px;
+}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:#14b8a6}
+h1{
+  font-size:clamp(2.4rem,6.4vw,4.4rem);line-height:1.05;letter-spacing:-.045em;
+  font-weight:800;margin:22px auto 20px;max-width:900px;
+}
+h1 .mark{
+  background:linear-gradient(100deg,#0f766e 0%,#168de2 55%,#14b8a6 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.subtitle{max-width:680px;margin:0 auto;color:#4d625d;font-size:1.1rem}
+.authors{margin:26px 0 2px;font-size:1.14rem;font-weight:600;color:#22332f}
+.authors span{margin:0 10px;color:#9db3ae}
+.affiliations{font-size:.98rem;color:#6a7f7a;letter-spacing:.04em;text-transform:uppercase}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:28px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:11px 20px;border-radius:999px;font-size:.98rem;font-weight:600;
+  border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.button:hover{text-decoration:none;transform:translateY(-1px)}
+.button.primary{background:linear-gradient(120deg,#0f766e,#0e8f9c);color:#fff;box-shadow:0 8px 20px rgba(15,118,110,.22)}
+.button.primary:hover{box-shadow:0 12px 26px rgba(15,118,110,.3)}
+.button.ghost{background:#fff;border-color:#d8e5e2;color:#22332f}
+.button.ghost:hover{border-color:#9ecfc7;background:#f4fbf9}
+.button .icon{font-size:1rem;opacity:.9}
+.hero-visual{margin:44px auto 0;position:relative}
+.hero-visual::after{
+  content:"";position:absolute;inset:auto 8% -22px;height:38px;border-radius:50%;
+  background:rgba(15,118,110,.16);filter:blur(22px);z-index:-1;
+}
+.hero-image{
+  margin:0 auto;width:100%;aspect-ratio:2/1;border-radius:24px;overflow:hidden;
+  background:#eaf6f3;border:1px solid #dfeeea;
+  box-shadow:0 26px 60px rgba(20,60,55,.16),0 3px 10px rgba(20,60,55,.06);
+}
+.hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+.caption{margin:16px auto 0;color:#6a7f7a;font-size:.95rem}
+section{padding:64px 0 0}
+section h2{font-size:clamp(1.6rem,3.4vw,2.15rem);line-height:1.2;font-weight:750;letter-spacing:-.03em;margin:0 0 18px;color:#12211f}
+section p{max-width:780px;margin:0 auto 18px;color:#4d625d}
+.lead{max-width:800px;margin:0 auto;font-size:1.08rem;color:#40544f}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 0;text-align:left}
+.card{background:#fff;border:1px solid #e4efec;border-radius:18px;padding:22px 22px 20px;box-shadow:0 6px 18px rgba(20,60,55,.05)}
+.card .ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:#e2f6f1;color:#0b6b61;margin-bottom:14px}
+.card h3{margin:0 0 6px;font-size:1.03rem;letter-spacing:-.01em;color:#182724}
+.card p{margin:0;font-size:.93rem;line-height:1.5;color:#5a6f6a}
+.try-card{
+  margin:34px auto 0;padding:38px 34px;border-radius:22px;color:#eafaf6;text-align:center;
+  background:linear-gradient(120deg,#083f3a 0%,#0f766e 55%,#0e8f9c 100%);
+  box-shadow:0 20px 44px rgba(8,63,58,.25);
+}
+.try-card h2{color:#fff;margin-bottom:10px}
+.try-card p{color:#c9ece4;margin-bottom:22px}
+.try-card .button.primary{background:#fff;color:#0b6b61;box-shadow:none}
+.try-card .button.primary:hover{background:#e9fbf6}
+.other-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.other-links a{border:1px solid #d8e5e2;background:#fff;border-radius:999px;padding:9px 16px;font-size:.92rem;font-weight:600}
+.other-links a:hover{text-decoration:none;border-color:#9ecfc7;background:#f4fbf9}
+.code{
+  width:min(720px,100%);margin:30px auto 0;background:#0f1f1d;color:#d9f2ec;
+  text-align:left;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(9,30,27,.2);
+}
+.code-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:#162b28;border-bottom:1px solid #1f3a36}
+.code-bar i{width:10px;height:10px;border-radius:50%;background:#2e4a45;display:block}
+.code-bar i:first-child{background:#e57373}.code-bar i:nth-child(2){background:#f0c36d}.code-bar i:nth-child(3){background:#7bc99a}
+.code pre{margin:0;padding:18px 20px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.code .c{color:#6f918a}
+.foot{padding:64px 0 40px;color:#82958f;font-size:.85rem}
+@media(max-width:760px){
+  .hero{padding-top:44px}
+  .cards{grid-template-columns:1fr}
+  section{padding-top:50px}
+  .try-card{padding:30px 22px}
+  .hero-image{aspect-ratio:16/10}
+}
 </style>
 </head>
 <body>
 <main class="page">
   <header class="hero">
-    <h1>Qalqan: Kazakh-Language Scam Message Detection</h1>
-    <p class="authors"><a href="#" aria-label="Project author">Project Author</a><sup>1</sup>, <a href="#" aria-label="Project team">Project Team</a><sup>1</sup></p>
-    <div class="affiliations"><sup>1</sup>School / Organisation Name</div>
+    <span class="badge"><span class="dot"></span>ISSAI FRP · Student Project</span>
+    <h1><span class="mark">SAQ</span>: Kazakh-Language Scam Message Detection</h1>
+    <p class="subtitle">A tool that spots the warning signs in suspicious messages and explains why they look dangerous — in language that is easy to understand.</p>
+    <p class="authors">Assem<span>·</span>Akzhan</p>
+    <div class="affiliations">ISSAI FRP</div>
     <nav class="buttons" aria-label="Project links">
-      <a class="button" href="#abstract"><span class="icon">▤</span> Abstract</a>
-      <a class="button" href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener"><span class="icon">↗</span> Demo</a>
-      <a class="button" href="#video"><span class="icon">▶</span> Video</a>
-      <a class="button" href="https://github.com/dilya265/Saq" target="_blank" rel="noopener"><span class="icon">⌘</span> Code</a>
-      <a class="button" href="#resources"><span class="icon">▧</span> Resources</a>
+      <a class="button primary" href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener"><span class="icon">↗</span>Try the demo</a>
+      <a class="button ghost" href="#abstract"><span class="icon">▤</span>Abstract</a>
+      <a class="button ghost" href="https://github.com/dilya265/Saq" target="_blank" rel="noopener"><span class="icon">⌘</span>Code</a>
+      <a class="button ghost" href="#resources"><span class="icon">▧</span>Resources</a>
     </nav>
   </header>
 
   <section aria-label="Project visual">
-    <div class="hero-image">
-      <div class="placeholder">
-        <strong>Project image / illustration</strong>
-        Add a screenshot of the Qalqan website, a project poster, or a visual explaining how scam messages are identified.
+    <div class="hero-visual">
+      <div class="hero-image">
+        <img src="images/hero.jpg" alt="A blue SAQ shield protecting a phone from red scam messages and warning signs">
       </div>
     </div>
-    <p class="caption">A project exploring accessible scam awareness for Kazakh-speaking communities.</p>
+    <p class="caption">SAQ stays in front of the user: it warns about fraud instead of letting the message through.</p>
   </section>
 
   <section class="section" id="abstract">
     <h2>Abstract</h2>
-    <p>Online scams often use urgency, impersonation, suspicious links, or requests for sensitive information to pressure people into making unsafe decisions. These messages can be particularly challenging for people with less experience recognising digital fraud. Qalqan explores a Kazakh-language tool that identifies potential warning signs in messages and explains why they may be suspicious. The project aims to make digital safety guidance more accessible, especially for older adults in Kazakhstan. Further development and evaluation are needed to assess the tool’s accuracy, limitations, and usefulness across different message types.</p>
-  </section>
-
-  <section class="section" id="video">
-    <h2>Video</h2>
-    <p>A short explanation or demonstration of the project can be added here.</p>
-    <div class="video-slot"><div>Embed your project introduction or demonstration video here.<br><small>YouTube or another video embed can replace this placeholder.</small></div></div>
+    <p class="lead">Online scams often use urgency, impersonation, suspicious links, or requests for sensitive information to pressure people into making unsafe decisions. These messages can be particularly challenging for people with less experience recognising digital fraud. SAQ explores a Kazakh-language tool that identifies potential warning signs in messages and explains why they may be suspicious. The project aims to make digital safety guidance more accessible, especially for older adults in Kazakhstan. Further development and evaluation are needed to assess the tool’s accuracy, limitations, and usefulness across different message types.</p>
+    <div class="cards">
+      <div class="card"><div class="ico">⚠</div><h3>Finds the red flags</h3><p>Urgency, fake prizes, strange links, requests for card numbers or SMS codes.</p></div>
+      <div class="card"><div class="ico">💬</div><h3>Explains in plain words</h3><p>Not just “scam”, but why the message looks suspicious, in simple Kazakh.</p></div>
+      <div class="card"><div class="ico">🛡</div><h3>Made for Kazakhstan</h3><p>Built around the messages people here actually receive on WhatsApp and SMS.</p></div>
+    </div>
   </section>
 
   <section class="section" id="try">
-    <h2>Try it for yourself</h2>
-    <p>Visit the official Qalqan website to explore the current demonstration.</p>
-    <a href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener">
-      <div class="hero-image" style="aspect-ratio:16/8">
-        <div class="placeholder"><strong>Official website preview</strong>Replace this area with a screenshot of your actual Qalqan tool.</div>
-      </div>
-    </a>
-    <p class="caption">Open the official website: <a href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener">Qalqan demo ↗</a></p>
+    <div class="try-card">
+      <h2>Try it for yourself</h2>
+      <p>Paste a suspicious message and see what SAQ says about it.</p>
+      <a class="button primary" href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener"><span class="icon">↗</span>Open the SAQ demo</a>
+    </div>
   </section>
 
   <section class="section" id="resources">
     <h2>Paper and resources</h2>
-    <p>Use the links below to access the research paper, source code, and project materials.</p>
+    <p>Code, demo and project materials are collected below.</p>
     <div class="other-links">
-      <a href="https://www.overleaf.com/" target="_blank" rel="noopener">Overleaf paper ↗</a>
+      <a href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener">SAQ demo ↗</a>
       <a href="https://github.com/dilya265/Saq" target="_blank" rel="noopener">GitHub repository ↗</a>
       <a href="#abstract">Abstract ↑</a>
-      <a href="%D0%A1%D0%B0%D2%9B_%20%D1%85%D0%B0%D0%B1%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%B0%20%D0%B0%D0%BB%D0%B0%D1%8F%D2%9B%D1%82%D1%8B%D2%9B%20%D0%BF%D0%B0_.html" target="_blank" rel="noopener">Official website ↗</a>
     </div>
-    <div class="code"># Project repository
-# Replace with your real GitHub repository URL
+    <div class="code">
+      <div class="code-bar"><i></i><i></i><i></i></div>
+      <pre><span class="c"># Project repository</span>
 git clone https://github.com/dilya265/Saq.git
 
-# Open the project folder
-cd Saq</div>
-    <p class="caption">The repository, paper, and dataset links will be updated when the final URLs are available.</p>
+<span class="c"># Open the project folder</span>
+cd Saq</pre>
+    </div>
   </section>
 
-  <footer class="foot">Qalqan · Project page · Research and development in progress</footer>
+  <footer class="foot">SAQ · ISSAI FRP · Research and development in progress</footer>
 </main>
 </body>
 </html>
