@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сақ: хабарлама алаяқтық па?</title>
+<style>
+:root{--bg:#f6f5f8;--fg:#1d1a22;--mut:#5f5a68;--card:#fff;--line:#dedae6;--acc:#8e2038;--red:#c4302b;--yel:#d99a00;--grn:#1f8a4c;--dim:#d9d5df;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141218;--fg:#f1eef5;--mut:#aaa3b6;--card:#1e1b24;--line:#3a3544;--acc:#e0627d;--red:#ef6a62;--yel:#f2b93b;--grn:#4cc27f;--dim:#3a3544}}
+:root[data-theme="dark"]{--bg:#141218;--fg:#f1eef5;--mut:#aaa3b6;--card:#1e1b24;--line:#3a3544;--acc:#e0627d;--red:#ef6a62;--yel:#f2b93b;--grn:#4cc27f;--dim:#3a3544}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.w{max-width:860px;margin:0 auto;padding:0 20px}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(34px,7vw,60px);line-height:1.08;margin:0 0 16px;letter-spacing:-.02em}
+h2{font-size:clamp(25px,4vw,34px);line-height:1.2;margin:0 0 14px;letter-spacing:-.01em}
+p{margin:0 0 12px;max-width:68ch}.mut{color:var(--mut)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;font-size:22px;color:var(--acc)}
+.top a{color:var(--mut);text-decoration:none;font-size:15px}
+.hero{padding:34px 0 50px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:13px 24px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.btn:focus-visible,textarea:focus-visible,.ex button:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.facts{display:grid;gap:0;margin-top:8px}
+.facts div{padding:12px 0 12px 16px;border-left:4px solid var(--acc);margin-bottom:12px}
+.facts b{display:block}
+.schemes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 28px;margin:16px 0 0;padding:0;list-style:none}
+.schemes li{padding:8px 0;border-bottom:1px solid var(--line)}
+.schemes b{display:block}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 26px}
+ol.steps li{counter-increment:s;display:flex;gap:14px;margin-bottom:12px}
+ol.steps li:before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+.lv{display:grid;gap:10px}
+.lv div{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.dot{flex:none;width:22px;height:22px;border-radius:50%;margin-top:4px}
+.dot.r{background:var(--red)}.dot.y{background:var(--yel)}.dot.g{background:var(--grn)}
+.lv b{display:block}
+.check{display:grid;grid-template-columns:1fr 92px;gap:20px;align-items:start}
+@media(max-width:620px){.check{grid-template-columns:1fr}.light{flex-direction:row!important;justify-self:start;padding:10px 16px!important}}
+textarea{width:100%;min-height:170px;padding:14px;border:2px solid var(--line);border-radius:12px;font:inherit;background:var(--card);color:var(--fg);resize:vertical}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.ex button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:99px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.light{display:flex;flex-direction:column;gap:12px;background:#26222d;padding:16px;border-radius:46px;justify-self:end}
+.light i{width:60px;height:60px;border-radius:50%;background:var(--dim);transition:background .3s,box-shadow .3s}
+.light i.on.r{background:var(--red);box-shadow:0 0 28px var(--red)}
+.light i.on.y{background:var(--yel);box-shadow:0 0 28px var(--yel)}
+.light i.on.g{background:var(--grn);box-shadow:0 0 28px var(--grn)}
+.light i{background:#4a4553}
+#res{display:none;margin-top:18px;padding:18px;border-radius:12px;background:var(--card);border:2px solid var(--line)}
+#res h3{margin:0 0 8px;font-size:22px}
+#res ul{margin:8px 0;padding-left:20px}
+#shown{margin:10px 0;padding:10px 12px;background:var(--bg);border-radius:8px;white-space:pre-wrap;word-break:break-word}
+mark{background:var(--yel);color:#1d1a22;border-radius:3px;padding:0 2px}
+.note{font-size:14px;color:var(--mut);margin-top:12px}
+.wish{text-align:center}.wish p{margin:0 auto 10px}
+.wish strong{font-size:clamp(22px,4vw,30px);display:block;margin-bottom:10px;color:var(--acc)}
+footer{padding:22px 0 34px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="top"><div class="logo">Сақ</div><a href="#tekseru">Тексеруге өту</a></div>
+
+<div class="hero">
+<h1>Хабарлама алаяқтық па? Жібермес бұрын тексеріңіз.</h1>
+<p class="mut" style="font-size:19px">Сақ қазақша, орысша және аралас тілдегі күдікті хабарламаны оқып, бір секундта қызыл, сары немесе жасыл белгі береді.</p>
+<a class="btn" href="#tekseru">Хабарламаны тексеру</a>
+</div>
+
+<section id="maqsat">
+<h2>Біздің мақсатымыз</h2>
+<p>Сақ — қарапайым адамға арналған көмекші. Мақсатымыз: күдікті хабарлама келгенде адам оған сеніп кетпей, алдымен тексеріп алуы үшін түсінікті әрі жылдам құрал жасау.</p>
+<p>Сайт не істейді: хабарламадағы қауіпті белгілерді тауып, неге күдікті екенін қысқа түсіндіреді және келесі қадамға кеңес береді. Ол ата-әжелерге, жасөспірімдерге және интернетте сатып алатын әр адамға көмектеседі.</p>
+</section>
+
+<section id="mesele">
+<h2>Мәселе неде?</h2>
+<p>Алаяқтар банк қызметкері, eGov, туыс немесе сатып алушы болып көрінеді. Олар сізді асықтырады, қорқытады немесе ақша уәде етіп, код пен карта деректерін сұрайды.</p>
+<div class="facts">
+<div><b>Қазақша құралдар аз</b>Көптеген алаяқтықты анықтайтын құралдар ағылшын тіліне арналған. Біз талдаған 73 511 ашық хабарламаның ішінде қазақша хабарлама жоқ, орысша 0,15% ғана.</div>
+<div><b>Тілдер араласады</b>Жергілікті алаяқтар қазақша мен орысшаны бір хабарламада қосып жазады, ал шетелдік құралдар оны түсінбейді.</div>
+</div>
+<p style="margin-top:20px"><b>Жиі кездесетін схемалар:</b></p>
+<ul class="schemes">
+<li><b>«Банктің қауіпсіздік қызметі»</b><span class="mut">Картаңыз бұғатталды, кодты айтыңыз</span></li>
+<li><b>Жалған төлемдер</b><span class="mut">eGov немесе ЦОН атынан «жәрдемақы»</span></li>
+<li><b>«Анашым, нөмірім жаңа»</b><span class="mut">Туыс болып ақша сұрайды</span></li>
+<li><b>OLX және Kolesa</b><span class="mut">Алдын ала төлем, жалған төлем беті</span></li>
+<li><b>Ұтыс және сыйлық</b><span class="mut">Алу үшін «салық» төлеу керек</span></li>
+<li><b>Жұмыс пен инвестиция</b><span class="mut">Кепілдендірілген табыс уәдесі</span></li>
+</ul>
+</section>
+
+<section id="qalai">
+<h2>Қалай қолданамыз?</h2>
+<ol class="steps">
+<li><div><b>Хабарламаны көшіріңіз.</b> SMS, WhatsApp немесе Telegram хабарламасының мәтінін таңдап, көшіріп алыңыз.</div></li>
+<li><div><b>Төмендегі өріске қойыңыз.</b> «Тексеру» түймесін басыңыз.</div></li>
+<li><div><b>Нәтижені оқыңыз.</b> Түс, себептер мен кеңес шығады, күдікті сөздер сары түспен белгіленеді.</div></li>
+</ol>
+<h2 style="font-size:24px">Түстер нені білдіреді?</h2>
+<div class="lv">
+<div><span class="dot r"></span><span><b>Қызыл: алаяқтыққа ұқсайды</b><span class="mut">Жауап бермеңіз, сілтемені баспаңыз, ақша аудармаңыз. Банкке өзіңіз ресми нөмірмен хабарласыңыз.</span></span></div>
+<div><span class="dot y"></span><span><b>Сары: сақ болыңыз</b><span class="mut">Бірнеше күдікті белгі бар. Асықпаңыз, жіберушіні ресми арнадан тексеріп, жақындарыңызбен кеңесіңіз.</span></span></div>
+<div><span class="dot g"></span><span><b>Жасыл: белгілер табылмады</b><span class="mut">Қауіпті белгі жоқ, бірақ бұл кепілдік емес. Код пен карта деректерін ешкімге айтпаңыз.</span></span></div>
+</div>
+</section>
+
+<section id="tekseru">
+<h2>Хабарламаны тексеріңіз</h2>
+<p class="mut">Мәтінді төмендегі өріске қойыңыз. Жеке деректерді (карта нөмірі, ЖСН) қоспаңыз.</p>
+<div class="ex">
+<button type="button" data-t="Құрметті клиент, сіздің Kaspi Gold картаңыз уақытша бұғатталды. Қайта ашу үшін SMS-пен келген кодты хабарлаңыз.">Мысал 1</button>
+<button type="button" data-t="Халықаралық сәлемдемеңіз кеден бақылауында. Босату үшін 8 000 теңге төлеңіз.">Мысал 2</button>
+<button type="button" data-t="Растау коды: 5173. Оны ешкімге айтпаңыз.">Мысал 3</button>
+</div>
+<div class="check">
+<div>
+<textarea id="t" aria-label="Хабарлама мәтіні" placeholder="Хабарлама мәтінін осы жерге қойыңыз…"></textarea>
+<button class="btn" id="go" type="button" style="margin-top:12px">Тексеру</button>
+</div>
+<div class="light" aria-hidden="true"><i class="r" id="lr"></i><i class="y" id="ly"></i><i class="g" id="lg"></i></div>
+</div>
+<div id="res" role="status" aria-live="polite">
+<h3 id="rh"></h3>
+<div id="shown"></div>
+<div id="rw"></div>
+<p id="ra" style="margin-top:10px"></p>
+</div>
+<p class="note">Бұл — оқу жобасының демо нұсқасы: ол ережелер бойынша жұмыс істейді және қателесуі мүмкін. Нәтиже кеңес қана, кепілдік емес.</p>
+</section>
+
+<section class="wish">
+<strong>Сақ болыңыз!</strong>
+<p>Кодты, құпия сөзді және карта деректерін ешкімге, тіпті «банк қызметкеріне» де айтпаңыз.</p>
+<p class="mut">Күмәнді хабарламаны жақындарыңызға да көрсетіңіз: бір тексеру біреуді алдаудан сақтап қалуы мүмкін.</p>
+</section>
+
+<footer>Сақ · FRP 2026 · AI Engineering · Akzhan және Assem</footer>
+</div>
+
+<script>
+var RULES=[
+[3,/((назови|сообщи|продикту|пришли|отправь|скинь|айтыңыз|хабарла|жібер).{0,40}(код|sms|смс|cvv|пароль|кодты|құпия)|(код|кодты|пароль).{0,25}(айтыңыз|жіберіңіз|хабарла|назови|сообщи|продикту))/giu,"код немесе құпия сөзді айтуды сұрайды"],
+[3,/(данн[\p{L}]+ карт|номер карт|cvv|фото карт|карта деректер|карта нөмір|карт[\p{L}]* деректер|введите данные|деректерін енгізіңіз|картаны растаңыз)/giu,"банк картасының деректерін сұрайды"],
+[3,/(безопасн[\p{L}]+ сч[её]т|қауіпсіз шот)/giu,"«қауіпсіз шотқа» ақша аударуды сұрайды"],
+[2,/(срочно|немедленно|в течение \d+ (минут|часов)|\d+ минут ішінде|24 часа|24 сағат|шұғыл|дереу)/giu,"асықтырады, ойлануға уақыт бермейді"],
+[1,/(заблокирован|блокталд|бұғатталд|ограничен|шектелд|списан|аннулир|жойыл)/giu,"бұғаттаумен немесе ақшадан айырумен қорқытады"],
+[2,/(https?:\/\/|[\w-]+\.(example|top|xyz|site|click|online)\b|ссылк|сілтеме)/giu,"күдікті сілтеме бар"],
+[2,/(выплат|пособи|компенсаци|возврат налог|выиграл|приз|розыгрыш|ұтып|ұтыс|жәрдемақы|төлем тағайындал|салық қайтарым|одобрен кредит|несие)/giu,"ақша, сыйлық немесе төлем уәде етеді"],
+[2,/(гарантир|кепілдік|\d{3}% |без опыта|табыс)/giu,"кепілдендірілген табыс уәде етеді"],
+[2,/(предоплат|депозит|страховк|комисси|алдын ала|жарна|оплатите (сбор|налог|доставк)|салық төлеңіз|төлеңіз)/giu,"алдын ала төлем сұрайды"],
+[3,/(нов[\p{L}]+ номер|нового номера|нөмірім өзгерді|жаңа нөмір|телефон (сломал|разбил)|телефоным сынды|попал в аварию).{0,120}(перевед|скин|займ|аудар|жібер|қарыз|деньги)|(перевед|скин|займ|аудар|жібер).{0,120}(нов[\p{L}]+ номер|нового номера|нөмірім өзгерді|жаңа нөмір)/giu,"«туыс» ақшаны шұғыл аударуды сұрайды"],
+[2,/(вложите|клуб трейдер|крипт|трейдерлер|инвестици|салыңыз.{0,40}алыңыз)/giu,"үлкен пайдалы «инвестиция» ұсынады"],
+[2,/((не звони|қоңырау шалма|проблемы).{0,60}(скинь|перевед|жібер|аудар)|(скинь|перевед|жібер|аудар).{0,40}(по этому номеру|осы нөмірге))/giu,"көрсетілген нөмірге ақша аударуды сұрайды"],
+[1,/(служба безопасности|сотрудник банка|қауіпсіздік қызмет|банк қауіпсіздік)/giu,"қауіпсіздік қызметі болып таныстырады"],
+[1,/(посылк[\p{L}]* (задержан|не доставлен)|сәлемдеме[\p{L}]* (кеден|жеткізілмед))/giu,"сәлемдемеге қатысты мәселе туралы хабарлайды"]
+];
+var SAFE=[[5,/(никому не сообщайте|никогда не просит|ешкімге.{0,20}айтпаңыз|ешқашан.{0,25}сұрамайды)/giu],[2,/(оплата .{0,15}прошла|төлеміңіз сәтті|покупка .{0,15}(прошла|сәтті)|сәтті өтті)/giu]];
+var LV={
+red:{h:"Қызыл: алаяқтыққа ұқсайды",c:"var(--red)",a:"Жауап бермеңіз, сілтемені баспаңыз, ақша аудармаңыз. Банкке картаның артындағы ресми нөмір арқылы өзіңіз хабарласыңыз."},
+yellow:{h:"Сары: сақ болыңыз",c:"var(--yel)",a:"Асықпаңыз. Жіберушіні ресми арнадан тексеріп, жақындарыңызбен кеңесіңіз."},
+green:{h:"Жасыл: белгілер табылмады",c:"var(--grn)",a:"Қауіпті белгі жоқ, бірақ бұл кепілдік емес. Код пен карта деректерін ешкімге айтпаңыз."}
+};
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function analyze(text){
+var score=0,why=[],ranges=[];
+RULES.forEach(function(r){
+var m=Array.from(text.matchAll(r[1]));
+if(m.length){score+=r[0];why.push(r[2]);m.forEach(function(x){ranges.push([x.index,x.index+x[0].length])})}
+});
+SAFE.forEach(function(s){if(new RegExp(s[1].source,"iu").test(text))score-=s[0]});
+ranges.sort(function(a,b){return a[0]-b[0]});
+var merged=[];ranges.forEach(function(r){var l=merged[merged.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else merged.push([r[0],r[1]])});
+return{level:score>=4?"red":score>=2?"yellow":"green",why:why,ranges:merged};
+}
+function mark(text,ranges){
+var out="",p=0;
+ranges.forEach(function(r){out+=esc(text.slice(p,r[0]))+"<mark>"+esc(text.slice(r[0],r[1]))+"</mark>";p=r[1]});
+return out+esc(text.slice(p));
+}
+function lights(level){
+["r","y","g"].forEach(function(k){document.getElementById("l"+k).className=k})
+var k={red:"r",yellow:"y",green:"g"}[level];
+if(k)document.getElementById("l"+k).className=k+" on "+k;
+}
+var t=document.getElementById("t"),res=document.getElementById("res");
+function run(){
+var s=t.value.trim();
+res.style.display="block";
+if(!s){lights();document.getElementById("rh").textContent="Мәтінді өріске қойыңыз.";document.getElementById("shown").innerHTML="";document.getElementById("rw").innerHTML="";document.getElementById("ra").textContent="";res.style.borderColor="var(--line)";return}
+var r=analyze(s),L=LV[r.level];
+lights(r.level);
+res.style.borderColor=L.c;
+var h=document.getElementById("rh");h.textContent=L.h;h.style.color=L.c;
+document.getElementById("shown").innerHTML=mark(s,r.ranges);
+document.getElementById("rw").innerHTML=r.why.length?"<b>Неге күдікті:</b><ul>"+r.why.map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ul>":"";
+document.getElementById("ra").innerHTML="<b>Кеңес:</b> "+esc(L.a);
+}
+document.getElementById("go").onclick=run;
+document.querySelectorAll(".ex button").forEach(function(b){b.onclick=function(){t.value=b.dataset.t;run()}});
+</script>
+</body>
+</html>
